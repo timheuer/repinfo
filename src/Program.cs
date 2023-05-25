@@ -1,6 +1,6 @@
 ﻿// get the current working directory
 using LibGit2Sharp;
-using System.Runtime.CompilerServices;
+using repinfo;
 
 string path = Directory.GetCurrentDirectory();
 
@@ -14,6 +14,15 @@ try
         Console.WriteLine($"Branch is {repo.Head.FriendlyName}");
         Console.WriteLine($"Remote is {headRemote}");
         Console.WriteLine($"Remote URL is {remote.Url}");
+
+        if (remote.Url.Contains("github"))
+        {
+            GitHubHelpers gh = new GitHubHelpers();
+            var ghinfo = gh.GetGithubInfo(remote.Url);
+            Console.WriteLine($"GitHub Owner: {ghinfo.owner}");
+            Console.WriteLine($"GitHub Repo: {ghinfo.repo}");
+        }
+
         Console.WriteLine($"Upstream branch is {repo.Head.TrackedBranch.FriendlyName}");
         Console.WriteLine($"Has uncommitted changes: {repo.RetrieveStatus().IsDirty}");
     }

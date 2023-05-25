@@ -13,10 +13,18 @@
     <RepositoryUrl>https://github.com/timheuer/repinfo</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReleaseNotes>Added remote URL info</PackageReleaseNotes>
+    <PackageReleaseNotes>Added GitHub info if a GitHub.com remote</PackageReleaseNotes>
     <PackageId>TimHeuer.RepInfo</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="LibGit2Sharp" Version="0.27.2" />
