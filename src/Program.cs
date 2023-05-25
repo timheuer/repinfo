@@ -14,7 +14,7 @@ try
         Console.WriteLine($"Has uncommitted changes: {repo.RetrieveStatus().IsDirty}");
     }
 }
-catch (RepositoryNotFoundException ex)
+catch (RepositoryNotFoundException _)
 {
     Console.WriteLine($"Not a valid repository root: {path}");
 }
