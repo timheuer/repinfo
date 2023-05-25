@@ -1,6 +1,7 @@
 ﻿// get the current working directory
 using LibGit2Sharp;
 using repinfo;
+using Spectre.Console;
 
 string path = Directory.GetCurrentDirectory();
 
@@ -10,24 +11,24 @@ try
     {
         var headRemote = repo.Head.RemoteName;
         var remote = repo.Network.Remotes.FirstOrDefault(r => r.Name == headRemote);
-        Console.WriteLine($"Repository is at {repo.Info.WorkingDirectory}");
-        Console.WriteLine($"Branch is {repo.Head.FriendlyName}");
-        Console.WriteLine($"Remote is {headRemote}");
-        Console.WriteLine($"Remote URL is {remote.Url}");
+        AnsiConsole.MarkupLine($"[bold green]Repository:[/] {repo.Info.WorkingDirectory}");
+        AnsiConsole.MarkupLine($"[bold green]Branch:[/] {repo.Head.FriendlyName}");
+        AnsiConsole.MarkupLine($"[bold green]Remote:[/] {headRemote}");
+        AnsiConsole.MarkupLine($"[bold green]Remote URL:[/] {remote.Url}");
 
         if (remote.Url.Contains("github"))
         {
             GitHubHelpers gh = new GitHubHelpers();
             var ghinfo = gh.GetGithubInfo(remote.Url);
-            Console.WriteLine($"GitHub Owner: {ghinfo.owner}");
-            Console.WriteLine($"GitHub Repo: {ghinfo.repo}");
+            AnsiConsole.MarkupLine($"[bold green]GitHub Owner:[/] {ghinfo.owner}");
+            AnsiConsole.MarkupLine($"[bold green]GitHub Repo:[/] {ghinfo.repo}");
         }
 
-        Console.WriteLine($"Upstream branch is {repo.Head.TrackedBranch.FriendlyName}");
-        Console.WriteLine($"Has uncommitted changes: {repo.RetrieveStatus().IsDirty}");
+        AnsiConsole.MarkupLine($"[bold green]Upstream branch:[/] {repo.Head.TrackedBranch.FriendlyName}");
+        AnsiConsole.MarkupLine($"[bold green]Has uncommitted changes:[/] {repo.RetrieveStatus().IsDirty}");
     }
 }
 catch (RepositoryNotFoundException _)
 {
-    Console.WriteLine($"Not a valid repository root: {path}");
+    AnsiConsole.MarkupLine($"[bold red]Not a valid repository root: {path}[/]");
 }

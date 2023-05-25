@@ -13,9 +13,9 @@
     <RepositoryUrl>https://github.com/timheuer/repinfo</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReleaseNotes>Added GitHub info if a GitHub.com remote</PackageReleaseNotes>
+    <PackageReleaseNotes>Added GitHub info if a GitHub.com remote; Added color ansi</PackageReleaseNotes>
     <PackageId>TimHeuer.RepInfo</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <PackageReference Include="LibGit2Sharp" Version="0.27.2" />
+    <PackageReference Include="Spectre.Console" Version="0.47.0" />
   </ItemGroup>
 
 </Project>
