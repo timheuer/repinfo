@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>True</PackAsTool>
+    <Title>Repository Info</Title>
+    <Authors>Tim Heuer</Authors>
+    <Description>A quick command to show some basic repo info</Description>
+    <PackageProjectUrl>https://github.com/timheuer/repinfo</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/timheuer/repinfo</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageId>TimHeuer.RepInfo</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LibGit2Sharp" Version="0.27.2" />
+  </ItemGroup>
+
+</Project>
