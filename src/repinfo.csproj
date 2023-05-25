@@ -13,9 +13,9 @@
     <RepositoryUrl>https://github.com/timheuer/repinfo</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed error case for invalid repo</PackageReleaseNotes>
     <PackageId>TimHeuer.RepInfo</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
