@@ -7,7 +7,7 @@ internal class GitHubHelpers
 
     public GitHubInfo GetGithubInfo(string uri)
     {
-        var regex = new Regex(@"https:\/\/github.com\/(?<owner>\w+)\/(?<repo>\w+)\.git");
+        var regex = new Regex(@"https:\/\/github.com\/(?<owner>\w+)\/(?<repo>\w+)(\.git)?");
         var match = regex.Match(uri);
 
         return new GitHubInfo(match.Groups["owner"].Value, match.Groups["repo"].Value);
