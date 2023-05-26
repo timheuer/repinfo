@@ -1,5 +1,4 @@
-﻿// get the current working directory
-using LibGit2Sharp;
+﻿using LibGit2Sharp;
 using repinfo;
 using Spectre.Console;
 
@@ -20,7 +19,9 @@ try
         AnsiConsole.MarkupLine($"[bold green]Branch:[/] {repo.Head.FriendlyName}");
         AnsiConsole.MarkupLine($"[bold green]Remote:[/] {headRemote}");
         AnsiConsole.MarkupLine($"[bold green]Remote URL:[/] {remote.Url}");
+        AnsiConsole.MarkupLine($"[bold green]Number of Remotes:[/] {repo.Network.Remotes.Count()}");
 
+        //extracting org/repo from github url
         if (remote.Url.Contains("github"))
         {
             GitHubHelpers gh = new GitHubHelpers();
