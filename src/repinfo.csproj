@@ -15,7 +15,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReleaseNotes>Added GitHub info if a GitHub.com remote; Added color ansi</PackageReleaseNotes>
     <PackageId>TimHeuer.RepInfo</PackageId>
-    <Version>1.0.5</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
@@ -29,6 +28,10 @@
   <ItemGroup>
     <PackageReference Include="LibGit2Sharp" Version="0.27.2" />
     <PackageReference Include="Spectre.Console" Version="0.47.0" />
+	  <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
   </ItemGroup>
 
 </Project>

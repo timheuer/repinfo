@@ -5,6 +5,11 @@ using Spectre.Console;
 
 string path = Directory.GetCurrentDirectory();
 
+while (!Directory.Exists(Path.Combine(path, ".git")))
+{
+    path = Path.GetFullPath(Path.Combine(path, ".."));
+}
+
 try
 {
     using (var repo = new Repository(path))
