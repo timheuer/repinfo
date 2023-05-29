@@ -16,9 +16,14 @@
     <PackageReleaseNotes>Added GitHub info if a GitHub.com remote; Added color ansi</PackageReleaseNotes>
     <PackageId>TimHeuer.RepInfo</PackageId>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>

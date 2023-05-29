@@ -17,7 +17,6 @@ try
         var remote = repo.Network.Remotes.FirstOrDefault(r => r.Name == headRemote);
         AnsiConsole.MarkupLine($"[bold green]Repository:[/] {repo.Info.WorkingDirectory}");
         AnsiConsole.MarkupLine($"[bold green]Branch:[/] {repo.Head.FriendlyName}");
-        AnsiConsole.MarkupLine($"[bold green]Remote:[/] {headRemote}");
 
         if (remote == null)
         {
@@ -25,6 +24,7 @@ try
         }
         else
         {
+            AnsiConsole.MarkupLine($"[bold green]Remote:[/] {headRemote}");
             AnsiConsole.MarkupLine($"[bold green]Remote URL:[/] {remote?.Url}");
             //extracting org/repo from github url
             if (remote.Url.Contains("github"))
