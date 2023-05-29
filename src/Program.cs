@@ -18,19 +18,26 @@ try
         AnsiConsole.MarkupLine($"[bold green]Repository:[/] {repo.Info.WorkingDirectory}");
         AnsiConsole.MarkupLine($"[bold green]Branch:[/] {repo.Head.FriendlyName}");
         AnsiConsole.MarkupLine($"[bold green]Remote:[/] {headRemote}");
-        AnsiConsole.MarkupLine($"[bold green]Remote URL:[/] {remote.Url}");
+
+        if (remote == null)
+        {
+            AnsiConsole.MarkupLine($"[bold green]Remote URL:[/] No remote for branch '{repo.Head.FriendlyName}'");
+        }
+        else
+        {
+            AnsiConsole.MarkupLine($"[bold green]Remote URL:[/] {remote?.Url}");
+            //extracting org/repo from github url
+            if (remote.Url.Contains("github"))
+            {
+                GitHubHelpers gh = new GitHubHelpers();
+                var ghinfo = gh.GetGithubInfo(remote.Url);
+                AnsiConsole.MarkupLine($"[bold green]GitHub Owner:[/] {ghinfo.owner}");
+                AnsiConsole.MarkupLine($"[bold green]GitHub Repo:[/] {ghinfo.repo}");
+            }
+        }
         AnsiConsole.MarkupLine($"[bold green]Number of Remotes:[/] {repo.Network.Remotes.Count()}");
 
-        //extracting org/repo from github url
-        if (remote.Url.Contains("github"))
-        {
-            GitHubHelpers gh = new GitHubHelpers();
-            var ghinfo = gh.GetGithubInfo(remote.Url);
-            AnsiConsole.MarkupLine($"[bold green]GitHub Owner:[/] {ghinfo.owner}");
-            AnsiConsole.MarkupLine($"[bold green]GitHub Repo:[/] {ghinfo.repo}");
-        }
-
-        AnsiConsole.MarkupLine($"[bold green]Upstream branch:[/] {repo.Head.TrackedBranch.FriendlyName}");
+        AnsiConsole.MarkupLine($"[bold green]Upstream branch:[/] {repo.Head.TrackedBranch?.FriendlyName ?? "No upstream for branch"}");
         AnsiConsole.MarkupLine($"[bold green]Has uncommitted changes:[/] {repo.RetrieveStatus().IsDirty}");
     }
 }
