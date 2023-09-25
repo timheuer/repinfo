@@ -17,6 +17,7 @@ try
         var remote = repo.Network.Remotes.FirstOrDefault(r => r.Name == headRemote);
         AnsiConsole.MarkupLine($"[bold green]Repository:[/] {repo.Info.WorkingDirectory}");
         AnsiConsole.MarkupLine($"[bold green]Branch:[/] {repo.Head.FriendlyName}");
+        AnsiConsole.MarkupLine($"[bold green]Commit:[/] {repo.Head.Tip.Sha}");
 
         if (remote == null)
         {
