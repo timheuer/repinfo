@@ -36,6 +36,11 @@ try
             }
         }
         AnsiConsole.MarkupLine($"[bold green]Number of Remotes:[/] {repo.Network.Remotes.Count()}");
+        foreach (var r in repo.Network.Remotes)
+        {
+            AnsiConsole.MarkupLine($"Remote: {r.Name}");
+            AnsiConsole.MarkupLine($"Remote URL: {r.Url}");
+        }
 
         AnsiConsole.MarkupLine($"[bold green]Upstream branch:[/] {repo.Head.TrackedBranch?.FriendlyName ?? "No upstream for branch"}");
         AnsiConsole.MarkupLine($"[bold green]Has uncommitted changes:[/] {repo.RetrieveStatus().IsDirty}");
