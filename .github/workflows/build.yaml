@@ -86,6 +86,7 @@ jobs:
     runs-on: ubuntu-latest # using windows agent due to nuget can't sign on linux yet
     permissions:
       contents: write
+      id-token: write
     env:
       DOTNET_CLI_TELEMETRY_OPTOUT: 1
       DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
